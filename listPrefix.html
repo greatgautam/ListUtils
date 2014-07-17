@@ -1,0 +1,53 @@
+<html>
+<head>
+<script type="text/javascript" language="Javascript" src="./listUtils.js"></script>
+<script>
+
+
+
+
+function addPrefix() {
+var listA = document.getElementById("listA").value;
+var prefix = document.getElementById("prefix").value;
+var linesA = listA.split('\n');
+
+var listAprefix = addPrefixL(linesA, prefix);
+
+var listAout = formatList(listAprefix, '\n');
+
+
+document.getElementById("resultArea").innerHTML = listAout;
+}
+
+</script>
+</head>
+<body>
+<table>
+<tr>
+<th>List A
+</th>
+<th>Enter Prefix:</th>
+<th>
+Result
+</th>
+</tr>
+<tr>
+<td>
+<textarea id="listA" rows="50" cols="20">
+</textarea>
+</td>
+<td valign="top">
+<input type="text" id="prefix" size="50">
+</input><br/>
+<button type="button" onclick="addPrefix()">Add Prefix</button>
+</td>
+<td>
+<textarea id="resultArea" rows="50" cols="20">
+</textarea>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>
