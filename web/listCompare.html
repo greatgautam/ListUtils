@@ -1,0 +1,135 @@
+<html>
+<head>
+<script type="text/javascript" language="Javascript" src="./listUtils.js"></script>
+
+<script>
+
+
+function listCompare() {
+
+var listAs = document.getElementById("listA").value;
+var listBs = document.getElementById("listB").value;
+
+var linesA = listAs.split('\n');
+var linesB = listBs.split('\n');
+var linesAminusB = "";
+var linesBminusA = "";
+var linesAunionB = "";
+var linesAintersectB = listIntersect(listAs, listBs);
+var found = false;
+
+
+
+////////////////// B minus A ////////////////////
+var linesAintersectBs = linesAintersectB.split('\n');
+for(var i = 0;i < linesB.length;i++){
+for(var j = 0;j < linesAintersectBs.length;j++){
+    if (linesB[i] == linesAintersectBs[j]){
+	found = true;
+	break;
+	}
+}//End for A
+
+if (found == false){
+	linesBminusA = linesBminusA + linesB[i]+'\n';
+}else{
+	found = false;
+}//End else
+}//End for B
+
+////////////////// A minus B ////////////////////
+var linesAintersectBs = linesAintersectB.split('\n');
+for(var i = 0;i < linesA.length;i++){
+for(var j = 0;j < linesAintersectBs.length;j++){
+    if (linesA[i] == linesAintersectBs[j]){
+	found = true;
+	break;
+	}
+}//End for A
+
+if (found == false){
+	linesAminusB = linesAminusB + linesA[i]+'\n';
+}else{
+	found = false;
+}//End else
+}//End for B
+
+////////////////// A Union B ////////////////////
+for(var i = 0;i < linesA.length;i++){
+	linesAunionB = linesAunionB + linesA[i]+'\n';
+}
+var linesBminusAs = linesBminusA.split('\n');
+for(var i = 0;i < linesBminusAs.length;i++){
+	linesAunionB = linesAunionB + linesBminusAs[i]+'\n';
+}
+
+document.getElementById("resultAreaAminusB").innerHTML = linesAminusB;
+document.getElementById("resultAreaBminusA").innerHTML = linesBminusA;
+document.getElementById("resultAreaAunionB").innerHTML = linesAunionB;
+document.getElementById("resultAreaAintersectB").innerHTML = linesAintersectB;
+
+}
+
+function myFunction() {
+	var listAs = document.getElementById("listA").value;
+var lines = listAs.split('\n');
+listCompare();
+
+}
+
+</script>
+</head>
+<body>
+<table>
+<tr>
+<th>List A
+</th>
+<th>List B
+</th>
+<th>
+A minus B <br/> Items in A not in B
+</th>
+<th>
+B minus A <br/> Items in B not in A
+</th>
+<th>
+A Union B
+</th>
+<th>
+A Intersect B <br/> Items in A and B both
+</th>
+<th>
+<button type="button" onclick="myFunction()">Compare</button>
+</th>
+</tr>
+<tr>
+<td>
+<textarea id="listA" rows="50" cols="20">
+</textarea>
+</td>
+<td>
+<textarea id="listB" rows="50" cols="20">
+</textarea>
+</td>
+<td>
+<textarea id="resultAreaAminusB" rows="50" cols="20">
+</textarea>
+</td>
+<td>
+<textarea id="resultAreaBminusA" rows="50" cols="20">
+</textarea>
+</td>
+<td>
+<textarea id="resultAreaAunionB" rows="50" cols="20">
+</textarea>
+</td>
+<td>
+<textarea id="resultAreaAintersectB" rows="50" cols="20">
+</textarea>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

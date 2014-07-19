@@ -1,0 +1,57 @@
+<html>
+<head>
+<script type="text/javascript" language="Javascript" src="./listUtils.js"></script>
+
+<script>
+
+
+function listIntersectL() {
+
+var listAs = document.getElementById("listA").value;
+var listBs = document.getElementById("listB").value;
+
+var listA = listAs.split('\n');
+var listB = listBs.split('\n');
+var listAintersectB = listIntersect(listA, listB);
+
+var listAout = formatList(listAintersectB, '\n');
+
+document.getElementById("resultAreaAintersectB").innerHTML = listAout;
+
+}
+
+</script>
+</head>
+<body>
+<table>
+<tr>
+<th>List A
+</th>
+<th>List B
+</th>
+<th>
+A Intersect B <br/> Items in A and B both
+</th>
+<th>
+<button type="button" onclick="listIntersectL()">Intersect</button>
+</th>
+</tr>
+<tr>
+<td>
+<textarea id="listA" rows="50" cols="20">
+</textarea>
+</td>
+<td>
+<textarea id="listB" rows="50" cols="20">
+</textarea>
+</td>
+<td>
+<textarea id="resultAreaAintersectB" rows="50" cols="20">
+</textarea>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

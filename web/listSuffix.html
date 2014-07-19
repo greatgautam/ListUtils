@@ -1,23 +1,20 @@
 <html>
 <head>
-<script type="text/javascript" language="Javascript" src="./listUtils.js"></script>
+<script type="text/javascript" src="../listUtils.js"></script>
 <script>
 
-
-
-
-function addPrefix() {
+function addSuffixL() {
 var listA = document.getElementById("listA").value;
-var prefix = document.getElementById("prefix").value;
+var suffix = document.getElementById("suffix").value;
 var linesA = listA.split('\n');
 
-var listAprefix = addPrefixL(linesA, prefix);
+var listAsuffix = addSuffix(linesA, suffix);
 
-var listAout = formatList(listAprefix, '\n');
-
+var listAout = formatList(listAsuffix, '\n');
 
 document.getElementById("resultArea").innerHTML = listAout;
 }
+
 
 </script>
 </head>
@@ -26,7 +23,7 @@ document.getElementById("resultArea").innerHTML = listAout;
 <tr>
 <th>List A
 </th>
-<th>Enter Prefix:</th>
+<th>Enter Suffix:</th>
 <th>
 Result
 </th>
@@ -37,9 +34,9 @@ Result
 </textarea>
 </td>
 <td valign="top">
-<input type="text" id="prefix" size="50">
+<input type="text" id="suffix" size="50">
 </input><br/>
-<button type="button" onclick="addPrefix()">Add Prefix</button>
+<button type="button" onclick="addSuffixL()">Add Suffix</button>
 </td>
 <td>
 <textarea id="resultArea" rows="50" cols="20">
