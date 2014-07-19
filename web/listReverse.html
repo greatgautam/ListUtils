@@ -1,0 +1,45 @@
+<html>
+<head>
+<script type="text/javascript" src="../listUtils.js"></script>
+<script>
+
+function listReverseL() {
+var listAs = document.getElementById("listA").value;
+
+var min ="";
+var linesA = listAs.split('\n');
+var listBs = listReverse(linesA);
+var listAout = formatList(listBs, '\n');
+document.getElementById("resultArea").innerHTML = listAout;
+}
+
+</script>
+</head>
+<body>
+<table>
+<tr>
+<th>List A
+</th>
+<th>Reverse</th>
+<th>
+Result
+</th>
+</tr>
+<tr>
+<td>
+<textarea id="listA" rows="50" cols="20">
+</textarea>
+</td>
+<td valign="top">
+<button type="button" onclick="listReverseL()">Reverse List</button>
+</td>
+<td>
+<textarea id="resultArea" rows="50" cols="20">
+</textarea>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

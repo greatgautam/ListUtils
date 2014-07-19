@@ -1,0 +1,49 @@
+<html>
+<head>
+<script type="text/javascript" src="../listUtils.js"></script>
+<script>
+
+function listStatisticsL() {
+var listAs = document.getElementById("listA").value;
+
+var linesA = listAs.split('\n');
+
+var listOut = " Number of items="+linesA.length+"\n Sum of items="+listSum(linesA)+"\n Average of items="+listAverage(linesA);
+
+
+document.getElementById("resultArea").innerHTML = listOut;
+
+}
+
+</script>
+</head>
+<body>
+<table>
+<tr>
+<th>List A
+</th>
+<th>Statistics</th>
+<th>
+Result
+</th>
+</tr>
+<tr>
+<td>
+<textarea id="listA" rows="50" cols="20">
+</textarea>
+</td>
+<td valign="top">
+<button type="button" onclick="listStatisticsL()">List Statistics </button><br />
+Statistics of the List items
+</input><br/>
+</td>
+<td valign="top">
+<textarea id="resultArea" rows="5" cols="20">
+</textarea>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>
