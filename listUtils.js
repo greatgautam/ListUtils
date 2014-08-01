@@ -77,16 +77,52 @@ function listIntersect(listA, listB) {
 		}// End for A
 	}// End for B
 	
-	listAintersectBarr = listAintersectB.split('\n');
+	var listAintersectBarr = listAintersectB.split('\n');
 	return listAintersectBarr;
 }
 
 // /////////////////////////////////////////////
 function listUnion(listA, listB) {
+var linesAunionB = "";
 
+for(var i = 0;i < listA.length;i++){
+	linesAunionB = linesAunionB + listA[i]+'\n';
 }
+
+var linesBminusA = listMinus(listB, listA);
+
+
+for(var i = 0;i < linesBminusA.length;i++){
+	linesAunionB = linesAunionB + linesBminusA[i]+'\n';
+}
+
+var listAunionBarr = linesAunionB.split('\n');
+	return listAunionBarr;
+}
+
 // /////////////////////////////////////////////
 function listMinus(listA, listB) {
+
+var linesAminusB = "";
+var linesAintersectBs = listIntersect(listA, listB);
+var found = false;
+
+for(var i = 0;i < listA.length;i++){
+	for(var j = 0;j < linesAintersectBs.length;j++){
+    		if (listA[i] == linesAintersectBs[j]){
+		found = true;
+		break;
+		}
+	}//End for A
+	if (found == false){
+		linesAminusB = linesAminusB + listA[i]+'\n';
+	}else{
+		found = false;
+	}//End else
+}//End for B
+
+var listAminusBarr = linesAminusB.split('\n');
+return listAminusBarr;
 
 }
 // /////////////////////////////////////////////
